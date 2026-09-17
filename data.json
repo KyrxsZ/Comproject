@@ -11,42 +11,12 @@
     "opening_hours": "08:00 - 16:00",
     "image": "placeholder.svg",
     "menus": [
-      {
-        "id": "chicken-noodle",
-        "name": "ก๋วยเตี๋ยวไก่",
-        "description": "น้ำซุปสูตรของร้าน",
-        "price": 45,
-        "category": "ก๋วยเตี๋ยว",
-        "availability": "available",
-        "image": "placeholder.svg",
-        "display_order": 1
-      },
-      {
-        "id": "thai-tea",
-        "name": "ชาไทย",
-        "description": "ชาไทยเย็น",
-        "price": 25,
-        "category": "เครื่องดื่ม",
-        "availability": "almost",
-        "image": "placeholder.svg",
-        "display_order": 2
-      }
+      {"id": "chicken-noodle", "name": "ก๋วยเตี๋ยวไก่", "description": "น้ำซุปสูตรของร้าน", "price": 45, "category": "ก๋วยเตี๋ยว", "availability": "available", "image": "placeholder.svg", "display_order": 1},
+      {"id": "thai-tea", "name": "ชาไทย", "description": "ชาไทยเย็น", "price": 25, "category": "เครื่องดื่ม", "availability": "almost", "image": "placeholder.svg", "display_order": 2}
     ],
     "reviews": [
-      {
-        "student_id_hash": "demo",
-        "rating": 5,
-        "comment": "น้ำซุปอร่อยและได้เร็ว",
-        "reviewer_display": "นักศึกษา ****01",
-        "created_at": "2026-09-10"
-      },
-      {
-        "student_id_hash": "demo2",
-        "rating": 4,
-        "comment": "ราคาเหมาะสม",
-        "reviewer_display": "นักศึกษา ****02",
-        "created_at": "2026-09-11"
-      }
+      {"student_id_hash": "demo", "rating": 5, "comment": "น้ำซุปอร่อยและได้เร็ว", "reviewer_display": "นักศึกษา ****01", "created_at": "2026-09-10"},
+      {"student_id_hash": "demo2", "rating": 4, "comment": "ราคาเหมาะสม", "reviewer_display": "นักศึกษา ****02", "created_at": "2026-09-11"}
     ]
   },
   {
@@ -61,35 +31,11 @@
     "opening_hours": "09:00 - 15:30",
     "image": "placeholder.svg",
     "menus": [
-      {
-        "id": "chicken-rice",
-        "name": "ข้าวกะเพราไก่",
-        "description": "เสิร์ฟพร้อมไข่ดาว",
-        "price": 45,
-        "category": "อาหารจานเดียว",
-        "availability": "available",
-        "image": "placeholder.svg",
-        "display_order": 1
-      },
-      {
-        "id": "omelet",
-        "name": "ข้าวไข่เจียว",
-        "description": "เลือกท็อปปิ้งได้",
-        "price": 35,
-        "category": "อาหารจานเดียว",
-        "availability": "sold_out",
-        "image": "placeholder.svg",
-        "display_order": 2
-      }
+      {"id": "chicken-rice", "name": "ข้าวกะเพราไก่", "description": "เสิร์ฟพร้อมไข่ดาว", "price": 45, "category": "อาหารจานเดียว", "availability": "available", "image": "placeholder.svg", "display_order": 1},
+      {"id": "omelet", "name": "ข้าวไข่เจียว", "description": "เลือกท็อปปิ้งได้", "price": 35, "category": "อาหารจานเดียว", "availability": "sold_out", "image": "placeholder.svg", "display_order": 2}
     ],
     "reviews": [
-      {
-        "student_id_hash": "demo3",
-        "rating": 4,
-        "comment": "รสชาติดี",
-        "reviewer_display": "นักศึกษา ****03",
-        "created_at": "2026-09-09"
-      }
+      {"student_id_hash": "demo3", "rating": 4, "comment": "รสชาติดี", "reviewer_display": "นักศึกษา ****03", "created_at": "2026-09-09"}
     ]
   }
 ]

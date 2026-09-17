@@ -1,13 +1,14 @@
 {
   "group": {
-    "name": "Group ??",
-    "section": "sec ??",
-    "topic": "ยังไม่ได้เลือกหัวข้อ",
-    "description": "เว็บของเราทำอะไร — เขียน 1 ประโยค"
+    "name": "Group 10",
+    "section": "sec06",
+    "topic": "ระบบร้านอาหารออนไลน์",
+    "description": "เว็บไซต์สำหรับค้นหาร้านอาหาร ดูเมนู และติดตามสถิติรีวิวแบบง่าย"
   },
   "members": [
-    {"name": "ชื่อ-สกุล", "id": "66xxxxxxx", "role": "หัวหน้ากลุ่ม", "task": "page1 · รายการ"},
-    {"name": "ชื่อ-สกุล", "id": "66xxxxxxx", "role": "สมาชิก", "task": "page2 · ฟอร์ม"},
-    {"name": "ชื่อ-สกุล", "id": "66xxxxxxx", "role": "สมาชิก", "task": "page3 · สถิติ"}
+    {"name": "นายณัฐกิตติ์ ศรีจันทร์", "id": "69130840043", "role": "Data Engineer", "task": "data.json + models.py"},
+    {"name": "นายปัณณวิชญ์ ราชอินทร์", "id": "69130840137", "role": "QA / Test", "task": "check.bat + page3"},
+    {"name": "นายอจลวิชญ์ โพธิ์วัน", "id": "69130840225", "role": "Project Lead (PM)", "task": "page1"},
+    {"name": "นายชิษณพัทธ์ ภูวภาคิน", "id": "69130840256", "role": "Frontend Dev (HTML/CSS)", "task": "page4"}
   ]
 }
