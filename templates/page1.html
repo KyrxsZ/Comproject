@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-heading">
+	<div>
+		<p class="eyebrow">UNICANTEEN · STUDENT VIEW</p>
+		<h1>ค้นหาร้านอาหารในมหาวิทยาลัย</h1>
+		<p class="lead">เช็กสถานะร้าน เมนูที่ยังมี และแบ่งปันประสบการณ์ด้วยรหัสนักศึกษา 11 หลัก</p>
+	</div>
+	<span class="badge">ข้อมูลจาก {{ backend }}</span>
+</div>
+
+<form class="panel filter-bar" method="get">
+	<div class="field"><label for="q">ค้นหาร้าน</label><input id="q" name="q" value="{{ request.args.get('q', '') }}" placeholder="ชื่อร้านหรือประเภทอาหาร"></div>
+	<div class="field"><label for="status">สถานะ</label><select id="status" name="status"><option value="">ทุกสถานะ</option><option value="open" {% if request.args.get('status') == 'open' %}selected{% endif %}>เปิดอยู่</option><option value="closed" {% if request.args.get('status') == 'closed' %}selected{% endif %}>ปิดอยู่</option><option value="temporary" {% if request.args.get('status') == 'temporary' %}selected{% endif %}>ปิดชั่วคราว</option></select></div>
+	<button class="btn" type="submit">ค้นหา</button>
+</form>
+
+<div class="card-grid">
+{% for restaurant in restaurants %}
+	<article class="item-card">
+		<img class="restaurant-image" src="{{ url_for('static', filename='img/' + restaurant.image) }}" alt="{{ restaurant.name }}">
+		<div class="item-card-body">
+			<div class="card-topline"><span class="badge {% if restaurant.status == 'open' %}badge-open{% else %}badge-closed{% endif %}">{{ restaurant.status_label }}</span><span class="muted">{{ restaurant.category }}</span></div>
+			<h2>{{ restaurant.name }}</h2>
+			<p>{{ restaurant.description }}</p>
+			<p class="rating">★ {{ restaurant.rating }} <span class="muted">({{ restaurant.review_count }} รีวิว)</span></p>
+			<a class="btn btn-light" href="{{ url_for('page', name='page1', id=restaurant.id) }}">ดูร้านอาหาร</a>
+		</div>
+	</article>
+{% else %}
+	<div class="empty">ไม่พบร้านที่ตรงกับคำค้นหา</div>
+{% endfor %}
+</div>
+
+{% if selected %}
+<section class="panel detail-panel">
+	<div class="page-heading"><div><p class="eyebrow">RESTAURANT DETAIL</p><h2>{{ selected.name }}</h2><p>{{ selected.location }} · เปิด {{ selected.opening_hours }}</p></div><span class="badge">{{ selected.status_label }}</span></div>
+	<h3>เมนูวันนี้</h3>
+	<div class="menu-list">
+	{% for menu in selected.menus %}
+		<div class="menu-row"><div><strong>{{ menu.name }}</strong><span class="muted">{{ menu.description }}</span></div><strong>{{ menu.price }} บาท</strong><span class="badge availability-{{ menu.availability }}">{% if menu.availability == 'available' %}มีพร้อมขาย{% elif menu.availability == 'almost' %}ใกล้หมด{% elif menu.availability == 'sold_out' %}หมดแล้ว{% else %}งดขายชั่วคราว{% endif %}</span></div>
+	{% endfor %}
+	</div>
+	<h3>รีวิวจากนักศึกษา</h3>
+	{% for review in selected.reviews %}<div class="review"><strong>★ {{ review.rating }} · {{ review.reviewer_display }}</strong><span class="muted">{{ review.created_at }}</span><p>{{ review.comment or 'ไม่ได้เขียนความคิดเห็น' }}</p></div>{% else %}<p class="muted">ยังไม่มีรีวิว</p>{% endfor %}
+	<form method="post" class="review-form">
+		<input type="hidden" name="action" value="review"><input type="hidden" name="restaurant_id" value="{{ selected.id }}">
+		<h3>เขียนรีวิว</h3>
+		<div class="two-col"><div class="field"><label>รหัสนักศึกษา 11 หลัก</label><input name="student_id" inputmode="numeric" pattern="[0-9]{11}" maxlength="11" required></div><div class="field"><label>คะแนน</label><select name="rating" required><option value="">เลือกคะแนน</option><option value="5">5 ดาว</option><option value="4">4 ดาว</option><option value="3">3 ดาว</option><option value="2">2 ดาว</option><option value="1">1 ดาว</option></select></div></div>
+		<div class="field"><label>ความคิดเห็น (ไม่บังคับ)</label><textarea name="comment" rows="3"></textarea></div><button class="btn" type="submit">ส่งรีวิว</button>
+	</form>
+</section>
+{% endif %}
+{% endblock %}

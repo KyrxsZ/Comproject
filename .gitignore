@@ -1,0 +1,14 @@
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+*.pyc
+.env
+*.env
+serviceAccountKey.json
+*-service-account.json
+firebase-service-account*.json
+.DS_Store
+Thumbs.db
+# uploaded photos are named <name>-<timestamp>.<ext>; keep them small or ignore them:
+# static/img/*-1*.jpg

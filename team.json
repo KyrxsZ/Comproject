@@ -1,0 +1,13 @@
+{
+  "group": {
+    "name": "Group ??",
+    "section": "sec ??",
+    "topic": "ยังไม่ได้เลือกหัวข้อ",
+    "description": "เว็บของเราทำอะไร — เขียน 1 ประโยค"
+  },
+  "members": [
+    {"name": "ชื่อ-สกุล", "id": "66xxxxxxx", "role": "หัวหน้ากลุ่ม", "task": "page1 · รายการ"},
+    {"name": "ชื่อ-สกุล", "id": "66xxxxxxx", "role": "สมาชิก", "task": "page2 · ฟอร์ม"},
+    {"name": "ชื่อ-สกุล", "id": "66xxxxxxx", "role": "สมาชิก", "task": "page3 · สถิติ"}
+  ]
+}
