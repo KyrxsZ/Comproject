@@ -115,6 +115,16 @@ def drop_unused_uploads(uploaded):
             stored = f.read()
     except OSError:
         stored = ""
+    if names and not all(n in stored for n in names):
+        try:
+            import firebase_store
+
+            for restaurant in firebase_store.load_restaurants():
+                stored = stored + " " + str(restaurant.get("image", ""))
+                for menu in restaurant.get("menus", []):
+                    stored = stored + " " + str(menu.get("image", ""))
+        except Exception:
+            pass
     for n in names:
         if n not in stored:
             try:
