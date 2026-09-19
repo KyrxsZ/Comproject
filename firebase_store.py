@@ -1,11 +1,28 @@
 """Small Firestore adapter with a local JSON fallback for classroom development."""
 import json
 import os
+import glob
 
 import storage
 
 _db = None
 _checked = False
+
+
+def _service_account_setting():
+    configured = os.environ.get("FIREBASE_SERVICE_ACCOUNT", "")
+    if configured != "":
+        return configured
+
+    here = os.path.dirname(os.path.abspath(__file__))
+    search_dirs = [here, os.path.dirname(here), os.path.dirname(os.path.dirname(here))]
+    names = ["firebase-service-account.json", "serviceAccountKey.json", "*-service-account.json", "*-firebase-adminsdk-*.json"]
+    for directory in search_dirs:
+        for name in names:
+            matches = glob.glob(os.path.join(directory, name))
+            if matches:
+                return matches[0]
+    return ""
 
 
 def _connect():
@@ -15,7 +32,7 @@ def _connect():
         return _db
     _checked = True
 
-    service_account = os.environ.get("FIREBASE_SERVICE_ACCOUNT", "")
+    service_account = _service_account_setting()
     if service_account == "":
         return None
 
